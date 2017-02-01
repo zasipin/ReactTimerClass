@@ -16,7 +16,7 @@ export default class CountdownForm extends React.Component {
     var f = function(){
        return that.onSubmit.apply(that, arguments);
     }
-    // or see Countdow.jsx (e) => {this.onSubmit(e)}
+    // or see Countdow.jsx (ez) => {this.onSubmit(e)}
     return (
       <div>
         <form onSubmit={f} className="countdown-form">
