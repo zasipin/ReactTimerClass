@@ -12,7 +12,28 @@ export default class Countdown extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState){
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    this.timer = undefined;
+  }
+
+  componentWillMount() {
+    console.log("component will mount");
+  }
+
+  componentDidMount() {
+    console.log("component did mount");
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+
+  }
+
+  componentWillRecieveProps() {
+
+  }
+
+  componentDidUpdate(prevProps, prevState) {
     if(this.state.countdownStatus !== prevState.countdownStatus){
       switch (this.state.countdownStatus) {
         case 'started':
@@ -42,6 +63,9 @@ export default class Countdown extends React.Component {
         count: newCount >= 0 ? newCount : 0
       });
       if (newCount === 0 && this.timer) {
+        this.setState({
+          countdownStatus: 'stopped'
+        });
         clearInterval(this.timer);
       }
     }, 1000);

@@ -7,6 +7,10 @@ export default class Controls extends React.Component {
     // }
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log("Components will recieve props", nextProps.countdownStatus);
+  }
+
   render(){
     var {countdownStatus} = this.props;
     var renderStartStopButton = () => {
