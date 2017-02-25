@@ -57,6 +57,16 @@ describe('Timer', () => {
        }, 1010);
      });
 
+     it('should stop timer', ()=>{
+       var timer = TestUtils.renderIntoDocument(<Timer/>);
+       timer.setState({count: 10})
+       timer.handleStatusChange('started');
+       timer.handleStatusChange('stopped');
+       expect(timer.state.count).toBe(0);
+       expect(timer.state.timerStatus).toBe('stopped');
+     });
+
+
    });
 
 });
