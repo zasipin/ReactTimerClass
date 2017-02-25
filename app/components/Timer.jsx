@@ -60,7 +60,7 @@ export default class Timer extends React.Component {
     return (<div>
           <h1 className="page-title">Timer</h1>
           <Clock totalSeconds={count}/>
-          <Controls timerStatus={timerStatus} onStatusChange={(status) => this.handleStatusChange(status)}/>
+          <Controls countdownStatus={timerStatus} onStatusChange={(status) => this.handleStatusChange(status)}/>
     </div>);
   }
 }
